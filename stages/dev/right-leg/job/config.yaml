@@ -35,3 +35,21 @@ actions:
       - name: "argo-promote"
         image: "quay.io/argoproj/kubectl-argo-rollouts:master"
         args: ["promote","podtato-right-leg","-n","podtatohead-dev"]
+
+  - name: "get-infra-version"
+    events:
+      - name: "sh.keptn.event.infra-version.triggered"
+    tasks:
+      - name: "getVersion"
+        files:
+          - scripts
+        image: "ghcr.io/thschue/kubectl:latest"
+        imagePullPolicy: "Always"
+        cmd:
+          - "ash"
+        args:
+          - "/keptn/scripts/set_infra_version.sh"
+        env:
+          - name: INFRAVERSION
+            value: "$.data.labels.version"
+            valueFrom: event
