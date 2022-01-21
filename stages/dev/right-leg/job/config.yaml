@@ -1,5 +1,21 @@
 apiVersion: v2
 actions:
+  - name: "infrastructure"
+    events:
+      - name: "sh.keptn.event.platform-setup.triggered"
+    tasks:
+      - name: "crossplane"
+        maxPollDuration: 1200
+        files:
+          - crossplane
+          - scripts
+        image: "ghcr.io/thschue/kubectl:latest"
+        imagePullPolicy: "Always"
+        cmd:
+          - "ash"
+        args:
+          - "/keptn/scripts/run_crossplane.sh"
+
   - name: "k6-smoke"
     events:
       - name: "sh.keptn.event.smoke-test.triggered"
