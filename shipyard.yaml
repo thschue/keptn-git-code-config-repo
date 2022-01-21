@@ -9,6 +9,7 @@ spec:
         - name: "artifact-delivery"
           tasks:
             - name: "promotion"
+            - name: "infra-version"
             - name: "monaco"
             - name: "infrastructure-delivery"
             - name: "deployment"
@@ -27,6 +28,7 @@ spec:
             - event: "dev.artifact-delivery.finished"
           tasks:
             - name: "promotion"
+            - name: "infra-version"
             - name: "monaco"
             - name: "infrastructure-delivery"
             - name: "deployment"
@@ -46,6 +48,7 @@ spec:
                 pass: manual
                 warning: manual
             - name: "promotion"
+            - name: "infra-version"
             - name: "deployment"
               properties:
                 deploymentstrategy: "user_managed"
