@@ -42,6 +42,7 @@ actions:
     tasks:
       - name: "getVersion"
         files:
+          - scripts
           - infraVersion.txt
         image: "ghcr.io/thschue/kubectl:latest"
         imagePullPolicy: "Always"
