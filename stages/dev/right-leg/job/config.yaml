@@ -1,8 +1,8 @@
 apiVersion: v2
 actions:
-  - name: "infrastructure-delivery"
+  - name: "infrastructure"
     events:
-      - name: "sh.keptn.event.platform-setup.triggered"
+      - name: "sh.keptn.event.infrastructure-delivery.triggered"
     tasks:
       - name: "crossplane"
         maxPollDuration: 1200
