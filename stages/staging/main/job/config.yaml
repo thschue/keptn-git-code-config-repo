@@ -4,21 +4,16 @@ actions:
     events:
       - name: "sh.keptn.event.infrastructure-delivery.triggered"
     tasks:
-      - name: "terraform"
+      - name: "crossplane"
+        maxPollDuration: 1200
         files:
-          - terraform
-        image: "hashicorp/terraform:1.0.6"
+          - scripts
+        image: "ghcr.io/thschue/kubectl:latest"
+        imagePullPolicy: "Always"
         cmd:
-          - sh
+          - "ash"
         args:
-          - /keptn/terraform/terraform.sh
-        env:
-          - name: terraform-google-creds
-            valueFrom: secret
-          - name: keptn-api-token
-            valueFrom: secret
-          - name: keptn-hostname
-            valueFrom: secret
+          - "/keptn/scripts/run_crossplane.sh"
 
   - name: "k6-smoke"
     events:
@@ -33,16 +28,29 @@ actions:
         args:
           - /keptn/k6/run-smoke-test.sh
 
-  - name: "k6-chaos"
+  - name: "release"
     events:
-      - name: "sh.keptn.event.test.triggered"
+      - name: "sh.keptn.event.release.triggered"
     tasks:
-      - name: "k6"
-        files:
-          - k6
-        image: "loadimpact/k6"
-        cmd:
-          - sh
-        args:
-          - /keptn/k6/run-chaos-test.sh
+      - name: "argo-promote"
+        image: "quay.io/argoproj/kubectl-argo-rollouts:master"
+        args: ["promote","podtato-right-leg","-n","podtatohead-dev"]
 
+  - name: "get-infra-version"
+    events:
+      - name: "sh.keptn.event.infra-version.triggered"
+    tasks:
+      - name: "getVersion"
+        files:
+          - scripts
+          - infraVersion.txt
+        image: "ghcr.io/thschue/kubectl:latest"
+        imagePullPolicy: "Always"
+        cmd:
+          - "ash"
+        args:
+          - "/keptn/scripts/check_infra_version.sh"
+        env:
+          - name: INFRAVERSION
+            value: "$.data.labels.version"
+            valueFrom: event
