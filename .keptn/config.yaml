@@ -7,3 +7,5 @@ services:
   triggerevent: sh.keptn.event.dev.artifact-delivery.triggered
 - name: right-arm
   triggerevent: sh.keptn.event.dev.artifact-delivery.triggered
+- name: left-arm
+  triggerevent: sh.keptn.event.dev.artifact-delivery.triggered
