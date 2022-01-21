@@ -1,3 +1,6 @@
+metadata:
+  initbranch: dev
+
 services:
 - name: left-leg
   triggerevent: sh.keptn.event.dev.artifact-delivery.triggered
