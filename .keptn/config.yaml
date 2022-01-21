@@ -11,3 +11,5 @@ services:
   triggerevent: sh.keptn.event.dev.artifact-delivery.triggered
 - name: main
   triggerevent: sh.keptn.event.dev.artifact-delivery.triggered
+- name: hats
+  triggerevent: sh.keptn.event.dev.artifact-delivery.triggered
