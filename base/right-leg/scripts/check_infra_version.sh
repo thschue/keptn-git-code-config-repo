@@ -11,5 +11,6 @@ if [ "$(printf '%s\n' "$expectedVersion" "$currentVersion" | sort -V | head -n1)
        echo "Greater than or equal to ${expectedVersion}"
        exit 0
 else
-       echo "Less than ${expectedVersion}"	exit 1
+       echo "Less than ${expectedVersion}"
+       exit 1
 fi
