@@ -1,6 +1,6 @@
 apiVersion: v2
 actions:
-  - name: "infrastructure"
+  - name: "infrastructure-delivery"
     events:
       - name: "sh.keptn.event.platform-setup.triggered"
     tasks:
