@@ -2,4 +2,4 @@
 
 cd /keptn/k6
 
-k6 run --duration 60s --vus 30 smoke.js
+k6 run -e STAGE=${STAGE} -e SERVICE=${SERVICE} --duration 60s --vus 30 /keptn/k6/smoke.js

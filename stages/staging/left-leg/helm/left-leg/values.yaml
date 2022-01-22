@@ -8,10 +8,7 @@ images:
   pullSecrets: []
 
 leftLeg:
-  repositoryBasename: podtato-left-leg
   tag: "{{ keptn/ImageVersion }}"
-  serviceType: ClusterIP
-  servicePort: 9002
 
 autoscaling:
   enabled: true
