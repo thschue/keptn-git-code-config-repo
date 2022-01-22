@@ -7,7 +7,7 @@ hats:
   repositoryBasename: podtato-hats
   tag: "{{ keptn/ImageVersion }}"
   serviceType: ClusterIP
-  servicePort: 9001
+  servicePort: 8080
 
 autoscaling:
   enabled: true

@@ -4,10 +4,8 @@ stage: staging
 replicaCount: 2
 
 hats:
-  repositoryBasename: podtato-hats
   tag: "{{ keptn/ImageVersion }}"
-  serviceType: ClusterIP
-  servicePort: 9001
+
 
 autoscaling:
   enabled: true
