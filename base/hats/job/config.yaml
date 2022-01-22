@@ -8,6 +8,7 @@ actions:
         maxPollDuration: 1200
         files:
           - scripts
+          - crossplane
         image: "ghcr.io/thschue/kubectl:latest"
         imagePullPolicy: "Always"
         cmd:
