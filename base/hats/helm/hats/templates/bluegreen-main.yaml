@@ -71,11 +71,11 @@ spec:
               value: {{ printf "%s-%s" "podtato" $componentName }}
           livenessProbe:
             httpGet:
-              path: /
+              path: /images/hats
               port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: /images/hats
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
