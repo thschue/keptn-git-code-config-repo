@@ -7,7 +7,7 @@ spec:
     tier: STANDARD_HA
     region: us-east4
     memorySizeGb: 1
-  providerRef:
+  providerConfigRef:
     name: "staging-crossplane-provider-gcp"
   writeConnectionSecretToRef:
     name: staging-cloudmemorystore-connection-details
