@@ -11,7 +11,7 @@ export let options = {
 };
 
 export default function () {
-  const res = http.get('http://podtato-${__ENV.SERVICE}-preview.podtatohead-${__ENV.STAGE}.svc.cluster.local:8080/${__ENV.SUBPATH}');
+  const res = http.get(`http://podtato-${__ENV.SERVICE}-preview.podtatohead-${__ENV.STAGE}.svc.cluster.local:8080/${__ENV.SUBPATH}`);
   const result = check(res, {
     'status is 200': (r) => r.status == 200,
   });

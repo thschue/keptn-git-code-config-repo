@@ -42,7 +42,7 @@ actions:
     tasks:
       - name: "argo-promote"
         image: "quay.io/argoproj/kubectl-argo-rollouts:master"
-        args: ["promote","podtato-left-leg","-n","podtatohead-${STAGE}"]
+        args: ["promote","podtato-hats","-n","podtatohead-$(STAGE)"]
         env:
           - name: STAGE
             value: "$.data.stage"
