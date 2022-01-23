@@ -1,0 +1,15 @@
+apiVersion: cache.gcp.crossplane.io/v1beta1
+kind: CloudMemorystoreInstance
+metadata:
+  name: staging-cloudmemorystore-instance
+spec:
+  forProvider:
+    tier: STANDARD_HA
+    region: us-east4
+    memorySizeGb: 1
+  providerConfigRef:
+    name: "staging-crossplane-provider-gcp"
+  writeConnectionSecretToRef:
+    name: staging-cloudmemorystore-connection-details
+    namespace: crossplane-system
+  deletionPolicy: Delete
